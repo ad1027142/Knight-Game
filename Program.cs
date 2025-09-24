@@ -1,18 +1,20 @@
-﻿// Game where you pick between 5 doors
+// Game where you pick between 5 doors
 using System.Collections;
 using System.ComponentModel.DataAnnotations;
-
+// Greets the user and has a title screen
 Console.WriteLine("Welcome.");
 Console.WriteLine("1: Start Adventure.");
 Console.WriteLine("2: Quit.");
 Random rand = new Random();
 string tscreen = Console.ReadLine() + "";
+// Used to choose the title screen
 switch (tscreen)
 {
 
     case "1":
         Console.WriteLine("Welcome to the 5 doors of destiny");
         while (tscreen == "1")
+        // Used to be able to toggle the while statement, stopping the infinite loop
         {
             Console.WriteLine("Which door do you choose?");
             string door = Console.ReadLine() + "";
@@ -22,17 +24,20 @@ switch (tscreen)
                     int door1 = rand.Next(1, 6);
                     if (door1 == 5)
                     {
+                        // For if you get lucky and win
                         Console.WriteLine("You found the treasure door");
                         tscreen = "2";
                         break;
                     }
                     else if (door1 == 1 || door1 == 2 || door1 == 3)
                     {
+                        // For if you get the most likely option
                         Console.WriteLine("You died");
                         tscreen = "2";
                         break;
                     }
                     else if (door1 == 4)
+                        // For another shot
                         Console.WriteLine("Nothing in there. Try again?");
                         break;
                 case "2":
@@ -111,6 +116,7 @@ switch (tscreen)
         }
         break;
     case "2":
+        // For ending the program when chosen by the user
         Console.WriteLine("Bye");
         break;
     default:
